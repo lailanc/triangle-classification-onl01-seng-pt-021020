@@ -8,9 +8,9 @@ class Triangle
   
   def kind
     triangle?
-    if length_one == length_two && length_two == length_three
+    if side_one == side_two && side_two == side_three
       :equilateral
-    elsif length_one == length_two || length_one == length_three || length_two == length_three
+    elsif side_one == side_two || side_one == side_three || side_two == side_three
       :isosceles
     else
       :scalene

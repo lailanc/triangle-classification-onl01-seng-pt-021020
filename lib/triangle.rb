@@ -17,6 +17,14 @@ class Triangle
     end
   end
   
+  def triangle?
+    triangle = [(side_one + side_two > side_three), (side_one + side_three > side_two), (side_two + side_three > side_one)]
+    [side_one, side_two, side_three].each do |side|
+      triangle << false if side <= 0 
+    raise TriangleError if triangle.include?(false)
+    end
+  end
+  
   
   
   

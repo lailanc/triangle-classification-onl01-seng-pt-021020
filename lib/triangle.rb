@@ -23,8 +23,6 @@ class Triangle
     end
   end
   class TriangleError < StandardError
-    def message
-      "TRIANGLE ERROR: GO STRAIGHT TO JAIL"
     end
   end
 end

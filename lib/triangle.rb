@@ -8,8 +8,6 @@ class Triangle
   
   
   
-    
-  end 
   
   
   

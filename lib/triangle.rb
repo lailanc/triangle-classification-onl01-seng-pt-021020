@@ -10,28 +10,24 @@ class Triangle
   end 
   
   def kind
-    triangle?
-    if side_one == side_two && side_two == side_three
-      :equilateral
-    elsif side_one == side_two || side_one == side_three || side_two == side_three
-      :isosceles
+    if (@side_one <= 0) || (@side_two <= 0) || (@side_three <= 0)
+      raise TriangleError
+    elsif (@side_one + @side_two <= @side_three) || (@side_one + @side_three <= @side_two) || (@side_two + @side_three <= @side_one)
+      raise TriangleError
     else
-      :scalene
+      if((@side_one == @side_b) && (@side_b == @side_c))
+        :equilateral
+      elsif((@side_a == @side_b) || (@side_b == @side_c) || (@side_c == @side_a))
+        :isosceles
+      else
+        :scalene
+      end
     end
   end
-  
-  def triangle?
-    triangle = [(side_one + side_two > side_three), (side_one + side_three > side_two), (side_two + side_three > side_one)]
-    [side_one, side_two, side_three].each do |side|
-      triangle << false if side <= 0 
-    raise TriangleError if triangle.include?(false)
-    end
-  end
-  
-  
-  
-  
+
   class TriangleError < StandardError
-    
-  end 
+    def message
+      "illegal traingle"
+    end
+  end
 end

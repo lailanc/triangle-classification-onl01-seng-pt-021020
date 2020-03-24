@@ -1,27 +1,31 @@
 class Triangle
   # write code here
-  attr_accessor :side_a, :side_b, :side_c
+  attr_accessor :length_one, :length_two, :length_three
 
-  def initialize(s_a, s_b, s_c)
-    @side_a = s_a
-    @side_b = s_b
-    @side_c = s_c
+  def initialize(length_one, length_two, length_three)
+    @length_one = length_one
+    @length_two = length_two
+    @length_three = length_three
   end
-  
-end 
 
-def kind
-    if (@side_a <= 0) || (@side_b <= 0) || (@side_c <= 0)
-      raise TriangleError
-    elsif (@side_a + @side_b <= @side_c) || (@side_a + @side_c <= @side_b) || (@side_b + @side_c <= @side_a)
-      raise TriangleError
+  def kind
+    triangle?
+    if length_one == length_two && length_two == length_three
+      :equilateral
+    elsif length_one == length_two || length_one == length_three || length_two == length_three
+      :isosceles
     else
-      if((@side_a == @side_b) && (@side_b == @side_c))
-        :equilateral
-      elsif((@side_a == @side_b) || (@side_b == @side_c) || (@side_c == @side_a))
-        :isosceles
-      else
-        :scalene
-      end
+      :scalene
     end
   end
+
+  def triangle?
+    triangle = [(length_one + length_two > length_three), (length_one + length_three > length_two), (length_two + length_three > length_one)]
+    [length_one, length_two, length_three].each do |side|
+      triangle << false if side <= 0 
+    raise TriangleError if triangle.include?(false)
+    end
+  end
+  class TriangleError < StandardError
+  end
+end

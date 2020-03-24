@@ -1,8 +1,8 @@
 class Triangle
   # write code here
-  attr_accessor :side_1, :side_two, :length_three
+  attr_accessor :side_1, :side_two, :side_three
 
-  def initialize(length_one, length_two, length_three)
+  def initialize(si, length_two, length_three)
     @length_one = length_one
     @length_two = length_two
     @length_three = length_three

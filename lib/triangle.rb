@@ -7,3 +7,5 @@ class Triangle
     @side_b = s_b
     @side_c = s_c
   end
+  
+end 

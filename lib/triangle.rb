@@ -18,14 +18,3 @@ class Triangle
       :scalene
     end
   end
-
-  def triangle?
-    triangle = [(length_one + length_two > length_three), (length_one + length_three > length_two), (length_two + length_three > length_one)]
-    [length_one, length_two, length_three].each do |side|
-      triangle << false if side <= 0 
-    raise TriangleError if triangle.include?(false)
-    end
-  end
-  class TriangleError < StandardError
-  end
-end

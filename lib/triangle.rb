@@ -17,7 +17,7 @@ class Triangle
     else
       if((@side_one == @side_two) && (@side_two == @side_three))
         :equilateral
-      elsif((@side_one == @side_two) || (@side_two == @side_three) || (@side_three == @side_a))
+      elsif((@side_one == @side_two) || (@side_two == @side_three) || (@side_three == @side_three))
         :isosceles
       else
         :scalene
@@ -26,8 +26,5 @@ class Triangle
   end
 
   class TriangleError < StandardError
-    def message
-      "illegal traingle"
-    end
   end
 end

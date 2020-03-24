@@ -8,12 +8,23 @@ class Triangle
   end
 
   def kind
-    if side1 == side2 && side2 == side3
-      :equilateral
-    elsif length_one == length_two || length_one == length_three || length_two == length_three
-      :isosceles
+    if (@side1 <= 0) || (@side2 <= 0) || (@side3 <= 0)
+      raise TriangleError
+    elsif (@side1 + @side2 <= @side3) || (@side1 + @side3 <= @side2) || (@side2 + @side3 <= @side1)
+      raise TriangleError
     else
-      :scalene
+      if (@side1 == @side2) && (@side2 == @side3)
+        :equilateral
+      elsif (@side1 == @side2) || (@side2 == @side3) || (@side1 == @side3)
+        :isosceles
+      elsif (@side1 != @side2) && (@side2 != @side3) && (@side1 != @side3)
+        :scalene
+      end
     end
-  end 
   end
+  class TriangleError < StandardError
+    def message
+      "TRIANGLE ERROR: GO STRAIGHT TO JAIL"
+    end
+  end
+end

@@ -1,16 +1,14 @@
 class Triangle
   # write code here
-  attr_accessor :side_1, :side_two, :side_three
 
-  def initialize(si, length_two, length_three)
-    @length_one = length_one
-    @length_two = length_two
-    @length_three = length_three
+  def initialize(side1, side2, side3)
+    @side1 = side1
+    @side2 = side2
+    @side3 = side3
   end
 
   def kind
-    triangle?
-    if length_one == length_two && length_two == length_three
+    if side1 == side2 && side2 == side3
       :equilateral
     elsif length_one == length_two || length_one == length_three || length_two == length_three
       :isosceles

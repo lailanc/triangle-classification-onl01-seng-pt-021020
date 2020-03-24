@@ -1,6 +1,6 @@
 class Triangle
   # write code here
-  def initalize ()
+  def initalize (side_one, side_two, side_three)
     
   end 
   
